@@ -1,0 +1,15 @@
+Staff-Chat:
+  Format: "&7[{server}] &6{player}: &f{message}"
+Request:
+  Format:
+    - "&6[Request] &7[{server}] &e{player} &7requested assistance"
+    - "  &fReason: &7{message}"
+Report:
+  Format:
+    - "&6[Report] &7[{server}] &e{reported} &7has been reported by &e{reporter}"
+    - "  &fReason: &7{reason}"
+Connection:
+  Join-Network: "&a[Staff] &f{player} &ehas joined the network! &7(to {server})"
+  Leave-Network: "&a[Staff] &f{player} &ehas left the network! &7(from {server})"
+  Switched-To: "&a[Staff] &f{player} &ehas joined your server! &7(from {server})"
+  Switched-From: "&a[Staff] &f{player} &ehas left your server! &7(to {server})"

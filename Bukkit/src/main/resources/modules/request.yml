@@ -1,0 +1,2 @@
+Receive-Permission: "ModSuite.Request.Receive"
+Send-Permission: "ModSuite.Request.Send"
