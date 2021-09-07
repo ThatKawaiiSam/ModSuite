@@ -13,7 +13,7 @@ public class FreezeModule extends BukkitModule<ModSuitePlugin> {
 
     public HashMap<UUID, FrozenPlayer> frozenPlayersMap;
     public List<String> message;
-    private String freezePermission;
+    public String freezePermission;
 
     public void freeze(Player player){
         int[] location = {player.getLocation().getBlockX(), player.getLocation().getBlockY(), player.getLocation().getBlockZ()};

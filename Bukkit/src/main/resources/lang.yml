@@ -18,3 +18,4 @@ Freeze:
   On-Quit: "&4%player% has quit while being frozen"
   On-Freeze: "&aSuccessfully frozen that player"
   On-Unfreeze: "&aSuccessfully unfroze that player"
+  On-Damage: "&cYou cannot attack that player because they are frozen"

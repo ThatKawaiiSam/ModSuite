@@ -15,6 +15,11 @@ public class FreezeCommand extends BukkitCommand<FreezeModule> {
     @Syntax("<player>")
     @CommandAlias("freeze|ss")
     public void onFreezeCommand(Player player, Player target) {
+        if (!player.hasPermission(this.getModule().freezePermission)){
+            player.sendMessage(ChatColor.RED + "No permission");
+            return;
+        }
+
         if (player.getUniqueId().equals(target.getUniqueId())){
             player.sendMessage(ChatColor.RED + "You cannot freeze yourself.");
             return;
@@ -25,7 +30,7 @@ public class FreezeCommand extends BukkitCommand<FreezeModule> {
             return;
         }
 
-        if (!player.isOp() && target.hasPermission("modesuite.freeze")){ //make it so other staff cant just freeze other staff only ops can
+        if (!player.isOp() && target.hasPermission(this.getModule().freezePermission)){ //make it so other staff cant just freeze other staff only ops can
             player.sendMessage(ChatColor.RED + "You cannot freeze that player");
             return;
         }
