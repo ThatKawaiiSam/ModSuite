@@ -4,6 +4,7 @@ import io.github.thatkawaiisam.artus.bukkit.BukkitPlugin;
 import io.github.thatkawaiisam.artus.bukkit.language.BukkitLanguageModule;
 import io.github.thatkawaiisam.modsuite.modules.cache.CacheModule;
 import io.github.thatkawaiisam.modsuite.modules.connection.ConnectionModule;
+import io.github.thatkawaiisam.modsuite.modules.freeze.FreezeModule;
 import io.github.thatkawaiisam.modsuite.modules.redis.RedisModule;
 import io.github.thatkawaiisam.modsuite.modules.reports.ReportsModule;
 import io.github.thatkawaiisam.modsuite.modules.requests.RequestModule;
@@ -25,6 +26,7 @@ public class ModSuitePlugin extends BukkitPlugin {
         this.getModuleFactory().addModule(new RequestModule(this));
         this.getModuleFactory().addModule(new StaffChatModule(this));
         this.getModuleFactory().addModule(new ConnectionModule(this));
+        this.getModuleFactory().addModule(new FreezeModule(this));
 
         // Enable Modules.
         this.getModuleFactory().enableModules();

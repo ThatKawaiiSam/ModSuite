@@ -13,3 +13,8 @@ Connection:
   Leave-Network: "&a[Staff] &f{player} &ehas left the network! &7(from {server})"
   Switched-To: "&a[Staff] &f{player} &ehas joined your server! &7(from {server})"
   Switched-From: "&a[Staff] &f{player} &ehas left your server! &7(to {server})"
+Freeze:
+  Freeze-Message: "&e\n&eYou are frozen\n&eJoin Teamspeak at\n&ets.server.net"
+  On-Quit: "&4%player% has quit while being frozen"
+  On-Freeze: "&aSuccessfully frozen that player"
+  On-Unfreeze: "&aSuccessfully unfroze that player"
