@@ -1,1 +1,2 @@
 Freeze-Permission: "ModSuite.Freeze"
+Freeze-Broadcast-Redis: true

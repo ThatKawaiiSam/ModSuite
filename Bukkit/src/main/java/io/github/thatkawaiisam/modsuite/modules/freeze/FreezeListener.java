@@ -1,8 +1,11 @@
 package io.github.thatkawaiisam.modsuite.modules.freeze;
 
 import io.github.thatkawaiisam.artus.bukkit.BukkitListener;
+import io.github.thatkawaiisam.modsuite.modules.freeze.packet.impl.FreezePlayerPacket;
+import io.github.thatkawaiisam.modsuite.modules.freeze.packet.impl.FreezeQuitPacket;
+import io.github.thatkawaiisam.modsuite.modules.reports.ReportPacket;
+import io.github.thatkawaiisam.modsuite.modules.reports.ReportPacketListener;
 import org.bukkit.Bukkit;
-import org.bukkit.ChatColor;
 import org.bukkit.Location;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -13,6 +16,11 @@ import org.bukkit.event.player.PlayerQuitEvent;
 
 public class FreezeListener extends BukkitListener<FreezeModule> {
 
+    /**
+     * The freeze listener for the freeze module
+     *
+     * @param module the module instance
+     */
     public FreezeListener(FreezeModule module) {
         super(module);
     }
@@ -22,13 +30,18 @@ public class FreezeListener extends BukkitListener<FreezeModule> {
         if (this.getModule().isFrozen(event.getPlayer().getUniqueId())) {
             this.getModule().unfreeze(event.getPlayer().getUniqueId());
 
-            String message = this.getModule().getPlugin().getLanguage().getValue("Freeze.On-Quit", true)
-                    .replace("%player%", event.getPlayer().getName());
+            if (!this.getModule().isBroadcastThroughRedis()) {
+                String message = this.getModule().getPlugin().getLanguage().getValue("Freeze.On-Quit", true)
+                        .replace("{player}", event.getPlayer().getName());
 
-            for (Player player : Bukkit.getOnlinePlayers()) {
-                if (player.hasPermission(this.getModule().freezePermission)) {
-                    player.sendMessage(message);
+                for (Player player : Bukkit.getOnlinePlayers()) {
+                    if (player.hasPermission(this.getModule().getFreezePermission())) {
+                        player.sendMessage(message);
+                    }
                 }
+            } else {
+                this.getModule().getPlugin().getPyrite().sendPacket(
+                        new FreezeQuitPacket(event.getPlayer().getName()), "ModSuite");
             }
         }
     }
@@ -36,7 +49,7 @@ public class FreezeListener extends BukkitListener<FreezeModule> {
     @EventHandler
     public void onPlayerMove(PlayerMoveEvent event) {
         if (this.getModule().isFrozen(event.getPlayer().getUniqueId())) {
-            FrozenPlayer frozenPlayer = this.getModule().frozenPlayersMap.get(event.getPlayer().getUniqueId());
+            FrozenPlayer frozenPlayer = this.getModule().getFrozenPlayersMap().get(event.getPlayer().getUniqueId());
             Location to = event.getTo();
             boolean hasMoved = frozenPlayer.location[0] != to.getBlockX() || frozenPlayer.location[1] != to.getBlockY() || frozenPlayer.location[2] != to.getBlockZ();
             if (hasMoved) {

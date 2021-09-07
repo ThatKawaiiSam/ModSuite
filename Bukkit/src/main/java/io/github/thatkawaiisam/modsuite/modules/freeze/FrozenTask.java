@@ -12,10 +12,10 @@ public class FrozenTask extends BukkitRunnable {
 
     @Override
     public void run() {
-        freezeModule.frozenPlayersMap.forEach((uuid, frozenPlayer) -> {
+        freezeModule.getFrozenPlayersMap().forEach((uuid, frozenPlayer) -> {
             Player player = frozenPlayer.getPlayer();
             if (player != null){
-                for (String string : this.freezeModule.message){
+                for (String string : this.freezeModule.getMessage()){
                     player.sendMessage(MessageUtility.formatMessage(string));
                 }
             }

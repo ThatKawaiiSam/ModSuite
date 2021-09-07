@@ -15,6 +15,9 @@ public class FrozenPlayer {
     private final float previousWalkSpeed;
     public final int[] location;
 
+    /**
+     * Unfreeze the owner of this object
+     */
     public void unfreeze(){
         Player player = this.getPlayer();
 
