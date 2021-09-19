@@ -4,9 +4,9 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>modsuite-bukkit</artifactId>
+    <artifactId>modsuite-shared</artifactId>
     <version>1.0-SNAPSHOT</version>
-    <name>ModSuite-Bukkit</name>
+    <name>ModSuite-Shared</name>
 
     <parent>
         <groupId>io.github.thatkawaiisam</groupId>
@@ -16,48 +16,15 @@
     </parent>
 
     <repositories>
-        <!-- Spigot Repo -->
-        <repository>
-            <id>spigot-repo</id>
-            <url>https://hub.spigotmc.org/nexus/content/repositories/snapshots/</url>
-        </repository>
     </repositories>
 
     <dependencies>
-        <!-- Artus -->
-        <dependency>
-            <groupId>io.github.thatkawaiisam</groupId>
-            <artifactId>artus</artifactId>
-            <version>1.0-SNAPSHOT</version>
-            <scope>compile</scope>
-        </dependency>
-        <!-- Spigot 1.8 -->
-        <dependency>
-            <groupId>org.spigotmc</groupId>
-            <artifactId>spigot-api</artifactId>
-            <version>1.8.8-R0.1-SNAPSHOT</version>
-            <scope>provided</scope>
-        </dependency>
         <!-- Lombok -->
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <version>1.16.16</version>
             <scope>provided</scope>
-        </dependency>
-        <!-- Filare -->
-        <dependency>
-            <groupId>io.github.thatkawaiisam</groupId>
-            <artifactId>filare</artifactId>
-            <version>1.0-SNAPSHOT</version>
-            <scope>compile</scope>
-        </dependency>
-        <!-- Utils -->
-        <dependency>
-            <groupId>io.github.thatkawaiisam</groupId>
-            <artifactId>utils</artifactId>
-            <version>1.0-SNAPSHOT</version>
-            <scope>compile</scope>
         </dependency>
         <!-- Redis -->
         <dependency>
@@ -80,13 +47,6 @@
             <version>1.0-SNAPSHOT</version>
             <scope>compile</scope>
         </dependency>
-        <!-- AFC -->
-        <dependency>
-            <groupId>co.aikar</groupId>
-            <artifactId>acf-paper</artifactId>
-            <version>0.5.0-SNAPSHOT</version>
-            <scope>compile</scope>
-        </dependency>
         <!-- ModSuite API -->
         <dependency>
             <groupId>io.github.thatkawaiisam</groupId>
@@ -94,18 +54,11 @@
             <version>1.0-SNAPSHOT</version>
             <scope>compile</scope>
         </dependency>
-        <!-- ModSuite Shared -->
-        <dependency>
-            <groupId>io.github.thatkawaiisam</groupId>
-            <artifactId>modsuite-shared</artifactId>
-            <version>1.0-SNAPSHOT</version>
-            <scope>compile</scope>
-        </dependency>
     </dependencies>
 
     <build>
         <defaultGoal>clean install</defaultGoal>
-        <finalName>ModSuite-Bukkit-${project.version}</finalName>
+        <finalName>ModSuite-Bungee-${project.version}</finalName>
 
         <resources>
             <resource>

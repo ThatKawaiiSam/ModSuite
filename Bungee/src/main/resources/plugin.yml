@@ -1,0 +1,5 @@
+name: ModSuite
+version: 1.0-SNAPSHOT
+description: Modular Moderation Suite.
+author: ThatKawaiiSam
+main: io.github.thatkawaiisam.modsuite.ModSuitePlugin

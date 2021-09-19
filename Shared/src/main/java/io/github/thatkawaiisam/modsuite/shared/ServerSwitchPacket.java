@@ -1,4 +1,4 @@
-package io.github.thatkawaiisam.modsuite.modules.connection;
+package io.github.thatkawaiisam.modsuite.shared;
 
 import io.github.thatkawaiisam.pyrite.packet.Packet;
 import lombok.AllArgsConstructor;

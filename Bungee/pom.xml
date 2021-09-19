@@ -4,9 +4,9 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>modsuite-bukkit</artifactId>
+    <artifactId>modsuite-bungee</artifactId>
     <version>1.0-SNAPSHOT</version>
-    <name>ModSuite-Bukkit</name>
+    <name>ModSuite-Bungee</name>
 
     <parent>
         <groupId>io.github.thatkawaiisam</groupId>
@@ -16,10 +16,10 @@
     </parent>
 
     <repositories>
-        <!-- Spigot Repo -->
+        <!-- BungeeCord Repo -->
         <repository>
-            <id>spigot-repo</id>
-            <url>https://hub.spigotmc.org/nexus/content/repositories/snapshots/</url>
+            <id>bungeecord-repo</id>
+            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
         </repository>
     </repositories>
 
@@ -31,13 +31,6 @@
             <version>1.0-SNAPSHOT</version>
             <scope>compile</scope>
         </dependency>
-        <!-- Spigot 1.8 -->
-        <dependency>
-            <groupId>org.spigotmc</groupId>
-            <artifactId>spigot-api</artifactId>
-            <version>1.8.8-R0.1-SNAPSHOT</version>
-            <scope>provided</scope>
-        </dependency>
         <!-- Lombok -->
         <dependency>
             <groupId>org.projectlombok</groupId>
@@ -45,17 +38,25 @@
             <version>1.16.16</version>
             <scope>provided</scope>
         </dependency>
+        <!-- BungeeCord -->
+        <dependency>
+            <groupId>net.md-5</groupId>
+            <artifactId>bungeecord-api</artifactId>
+            <version>1.17-R0.1-SNAPSHOT</version>
+            <type>jar</type>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>net.md-5</groupId>
+            <artifactId>bungeecord-api</artifactId>
+            <version>1.17-R0.1-SNAPSHOT</version>
+            <type>javadoc</type>
+            <scope>provided</scope>
+        </dependency>
         <!-- Filare -->
         <dependency>
             <groupId>io.github.thatkawaiisam</groupId>
             <artifactId>filare</artifactId>
-            <version>1.0-SNAPSHOT</version>
-            <scope>compile</scope>
-        </dependency>
-        <!-- Utils -->
-        <dependency>
-            <groupId>io.github.thatkawaiisam</groupId>
-            <artifactId>utils</artifactId>
             <version>1.0-SNAPSHOT</version>
             <scope>compile</scope>
         </dependency>
@@ -83,7 +84,7 @@
         <!-- AFC -->
         <dependency>
             <groupId>co.aikar</groupId>
-            <artifactId>acf-paper</artifactId>
+            <artifactId>acf-bungee</artifactId>
             <version>0.5.0-SNAPSHOT</version>
             <scope>compile</scope>
         </dependency>
@@ -105,7 +106,7 @@
 
     <build>
         <defaultGoal>clean install</defaultGoal>
-        <finalName>ModSuite-Bukkit-${project.version}</finalName>
+        <finalName>ModSuite-Bungee-${project.version}</finalName>
 
         <resources>
             <resource>

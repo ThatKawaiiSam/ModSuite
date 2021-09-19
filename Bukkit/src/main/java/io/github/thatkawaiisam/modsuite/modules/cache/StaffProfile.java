@@ -1,6 +1,5 @@
 package io.github.thatkawaiisam.modsuite.modules.cache;
 
-import io.github.thatkawaiisam.utils.CachedInventory;
 import io.github.thatkawaiisam.utils.UUIDUtility;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
@@ -15,7 +14,7 @@ public class StaffProfile {
     private final UUID uuid;
 
     private long joinedTime = System.currentTimeMillis();
-    private String currentServer = null;
+    private String currentServer;
     private String previousServer = null;
     private String name = "Unknown";
 
@@ -24,8 +23,9 @@ public class StaffProfile {
      *
      * @param uuid of player.
      */
-    public StaffProfile(UUID uuid) {
+    public StaffProfile(UUID uuid, String currentServer) {
         this.uuid = uuid;
+        this.currentServer = currentServer;
         // Fetches offline name in the event that the staff profile
         // has come from another networked server.
         UUIDUtility.getName(uuid).whenComplete((uuidPair, throwable) -> {

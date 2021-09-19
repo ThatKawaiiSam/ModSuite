@@ -12,7 +12,9 @@
 
     <modules>
         <module>API</module>
+        <module>Shared</module>
         <module>Bukkit</module>
+        <module>Bungee</module>
     </modules>
 
     <dependencies>

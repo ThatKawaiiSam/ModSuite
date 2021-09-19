@@ -1,5 +1,6 @@
 package io.github.thatkawaiisam.modsuite.modules.connection;
 
+import io.github.thatkawaiisam.modsuite.shared.ServerSwitchPacket;
 import io.github.thatkawaiisam.pyrite.packet.PacketContainer;
 import io.github.thatkawaiisam.pyrite.packet.PacketListener;
 import org.bukkit.Bukkit;
@@ -21,7 +22,7 @@ public class ConnectionPacketListener implements PacketContainer {
     @PacketListener(channels = { "ModSuite" })
     public void onServerSwitch(ServerSwitchPacket packet) {
         // Network Join.
-        if (packet.getPreviousServer() == null) {
+        if (packet.getPreviousServer() == null && packet.getCurrentServer() != null) {
             for (Player player : Bukkit.getOnlinePlayers()) {
                 if (player.hasPermission("Network.Receive")) {
                     final String toSend = this.module.getPlugin().getLanguage().getValue("Connection.Join-Network", true)
@@ -33,7 +34,7 @@ public class ConnectionPacketListener implements PacketContainer {
             return;
         }
         // Network Leave.
-        if (packet.getCurrentServer() == null) {
+        if (packet.getPreviousServer() != null && packet.getCurrentServer() == null) {
             for (Player player : Bukkit.getOnlinePlayers()) {
                 if (player.hasPermission("Network.Receive")) {
                     final String toSend = this.module.getPlugin().getLanguage().getValue("Connection.Leave-Network", true)
@@ -49,7 +50,7 @@ public class ConnectionPacketListener implements PacketContainer {
             for (Player player : Bukkit.getOnlinePlayers()) {
                 if (player.hasPermission("Network.Receive")) {
                     final String toSend = this.module.getPlugin().getLanguage().getValue("Connection.Switch-To", true)
-                            .replace("{server}", packet.getCurrentServer())
+                            .replace("{server}", packet.getPreviousServer())
                             .replace("{player}", packet.getUsername());
                     player.sendMessage(toSend);
                 }

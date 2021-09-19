@@ -98,6 +98,7 @@ public class CacheModule extends BukkitModule<ModSuitePlugin> {
 
             // Constructing profile data.
             data.put("currentServer", profile.getCurrentServer());
+            data.put("joinedTime", profile.getJoinedTime() + "");
 
             // If the profile has quit, be sure to state that this current instance is their previous server in the event
             // that the data is used or referenced else where.
@@ -111,7 +112,7 @@ public class CacheModule extends BukkitModule<ModSuitePlugin> {
             // If the profile has quit the current instance, add a TTL of 2 seconds in order for them to join the next server.
             // Note: There should be a more elegant system of doing this. Potentially through a separate bungee plugin?
             if (quit) {
-                jedis.expire("ModSuite:" + profile.getUuid(), 2);
+                jedis.expire("ModSuite:" + profile.getUuid(), 3);
             }
             return jedis;
         });
